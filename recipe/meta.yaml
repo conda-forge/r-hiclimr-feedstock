@@ -1,4 +1,4 @@
-{% set version = "2.1.7" %}
+{% set version = "2.1.8" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,7 +10,7 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/HiClimR_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/HiClimR/HiClimR_{{ version }}.tar.gz
-  sha256: e737833e292c9d673eaf011b7aa0623163d280a36d781fda1470929c3feff73f
+  sha256: 75d7d79ea084600fcc0680481f956a5e062f7f0cf25ec8c474880312cc5ef9d6
 
 build:
   merge_build_host: true  # [win]
@@ -45,12 +45,13 @@ test:
 
 about:
   home: https://github.com/hsbadr/HiClimR
-  license: GPL (>= 2)
+  license: GPL-3.0-only
   summary: "A tool for Hierarchical Climate Regionalization applicable to any correlation-based clustering. It adds several features and a new clustering method (called, 'regional' linkage) to hierarchical clustering in R ('hclust' function in 'stats' library): data regridding, coarsening spatial resolution, geographic masking,\
     \ contiguity-constrained clustering, data filtering by mean and/or variance thresholds, data preprocessing (detrending, standardization, and PCA), faster correlation function with preliminary big data support, different clustering methods, hybrid hierarchical clustering, multivariate clustering (MVC), cluster validation,\
     \ visualization of regionalization results, and exporting region map and mean timeseries into NetCDF-4 file."
   license_family: GPL3
-  license_file: {{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-2
+  license_file:
+    - {{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3
 
 extra:
   recipe-maintainers:
