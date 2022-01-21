@@ -1,4 +1,4 @@
-{% set version = "2.2.0" %}
+{% set version = "2.2.1" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,7 +10,7 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/HiClimR_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/HiClimR/HiClimR_{{ version }}.tar.gz
-  sha256: df342d701ae1b5b6e9150cbc30a63308e9f262b79862ef5dba51828a3bcd025f
+  sha256: c85a8036a1fe7cdffc62450f66377a4bcdf5ccbc2a280a7207c77bc990b95185
 
 build:
   merge_build_host: true  # [win]
