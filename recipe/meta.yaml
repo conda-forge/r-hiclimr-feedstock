@@ -1,6 +1,5 @@
 {% set version = "2.2.1" %}
 {% set posix = 'm2-' if win else '' %}
-{% set native = 'm2w64-' if win else '' %}
 
 package:
   name: r-hiclimr
@@ -13,8 +12,7 @@ source:
   sha256: c85a8036a1fe7cdffc62450f66377a4bcdf5ccbc2a280a7207c77bc990b95185
 
 build:
-  merge_build_host: true  # [win]
-  number: 2
+  number: 3
   rpaths:
     - lib/R/lib/
     - lib/
@@ -22,7 +20,9 @@ build:
 requirements:
   build:
     - {{ compiler('c') }}              # [not win]
+    - {{ stdlib("c") }}                # [not win]
     - {{ compiler('m2w64_c') }}        # [win]
+    - {{ stdlib("m2w64_c") }}          # [win]
     - {{ compiler('fortran') }}        # [not win]
     - {{ compiler('m2w64_fortran') }}  # [win]
     - {{ posix }}filesystem        # [win]
@@ -35,7 +35,6 @@ requirements:
     - r-ncdf4
   run:
     - r-base
-    - {{ native }}gcc-libs         # [win]
     - r-ncdf4
 
 test:
